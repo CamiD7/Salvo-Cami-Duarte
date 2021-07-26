@@ -53,10 +53,9 @@ public class makeGameAuxDTO {
         if (gamePlayer.getSalvo().size() >  gamePlayer.getOpponentPlayer().get().getSalvo().size() ){
             return  "WAIT";
         }
-        if (allHits(gamePlayer) == 17 && allHits(gamePlayer) == 17 && gamePlayer.getSalvo().size() == gamePlayer.getOpponentPlayer().get().getSalvo().size()){
+        if (allHits(gamePlayer) == 17 && allHits(gamePlayer.getOpponentPlayer().get()) == 17 && gamePlayer.getSalvo().size() == gamePlayer.getOpponentPlayer().get().getSalvo().size()){
             return "TIE";
         }
-
         if (allHits(gamePlayer) == 17 && allHits(gamePlayer.getOpponentPlayer().get()) < 17 && gamePlayer.getSalvo().size() == gamePlayer.getOpponentPlayer().get().getSalvo().size()){ //){
             return "WON";
         }
@@ -66,8 +65,6 @@ public class makeGameAuxDTO {
         if (gamePlayer.getSalvo().size() < gamePlayer.getOpponentPlayer().get().getSalvo().size() ||gamePlayer.getSalvo().size() == gamePlayer.getOpponentPlayer().get().getSalvo().size()  ){
             return "PLAY";
         }
-
-
         return "UNDEFINED";
     }
 
